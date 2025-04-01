@@ -5,3 +5,4 @@ pydantic
 python-jose[cryptography]
 uvicorn
 passlib
+psycopg2-binary
