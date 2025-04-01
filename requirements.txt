@@ -4,5 +4,5 @@ sqlalchemy-utils
 pydantic
 python-jose[cryptography]
 uvicorn
-passlib
+passlib[bcrypt]
 psycopg2-binary
