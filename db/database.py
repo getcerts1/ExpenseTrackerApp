@@ -4,11 +4,6 @@ from sqlalchemy_utils import database_exists, create_database
 from core.config import url
 
 Base = declarative_base()
-
-
-
-
-
 engine = create_engine(url, echo=True)
 
 
@@ -20,7 +15,6 @@ if not database_exists(engine.url):
 
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
 
 
 def get_db():
