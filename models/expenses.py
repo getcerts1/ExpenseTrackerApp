@@ -6,9 +6,9 @@ from db.database import Base
 class Expense(Base):
     __tablename__ = "expenses"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    category = Column(String, index=True)
+    category = Column(String, nullable=False)
     description = Column(String, nullable=True)
     amount = Column(Float, nullable=False)
     time_created = Column(TIMESTAMP, nullable=False, server_default=func.now())
