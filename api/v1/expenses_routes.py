@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
 from db.database import get_db
-from crud.expenses_crud import create_expense_crud, get_list_categories, get_expense_by_id_crud
+from crud.expenses_crud import create_expense_crud, get_list_categories, get_expense_by_id_crud, get_summary
 from schemas.expenseschema import CreateExpense, ReturnExpense
 from core.security import verify_token
 
@@ -46,3 +46,14 @@ async def get_expense_by_id(id: int, db: Session = Depends(get_db),
     expense = get_expense_by_id_crud(id,user_id, db)
 
     return expense
+
+
+@router.get("/expenses/summary")
+async def summary(db: Session = Depends(get_db),
+                  user: dict = Depends(verify_token)):
+
+    user_id = user.id
+
+    summary = get_summary(user_id, db)
+    return summary
+
