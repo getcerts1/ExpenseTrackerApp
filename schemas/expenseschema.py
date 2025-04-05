@@ -1,5 +1,5 @@
 from pydantic import BaseModel, field_validator
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
 
 class CreateExpense(BaseModel):
@@ -14,6 +14,7 @@ class CreateExpense(BaseModel):
 
         if value not in valid_categories:
             raise ValueError("category type is wrong")
+
         return value
 
     class Config:
@@ -29,3 +30,5 @@ class ReturnExpense(BaseModel):
 
     class Config:
         from_attributes = True
+
+
