@@ -9,7 +9,9 @@ from core.security import verify_token
 
 
 
-router = APIRouter()
+router = APIRouter(
+    tags=["Expense"]
+)
 
 
 @router.post("/new-expense", response_model=ReturnExpense)

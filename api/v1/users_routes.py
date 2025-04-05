@@ -9,7 +9,7 @@ import crud.user_crud
 
 
 router = APIRouter(
-    tags=["AUTHENTICATION"]
+    tags=["Users"]
 )
 
 
